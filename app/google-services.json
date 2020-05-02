@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "713812708563",
+    "firebase_url": "https://hostelapp-fadcb.firebaseio.com",
+    "project_id": "hostelapp-fadcb",
+    "storage_bucket": "hostelapp-fadcb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:713812708563:android:015b9130ca646da7c2d826",
+        "android_client_info": {
+          "package_name": "com.example.hostel_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "713812708563-k0pfjepp2f5k6fjq1ed4iipe7a946rrs.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.hostel_app",
+            "certificate_hash": "3208886dfae27a17cef697de09233df57eee92b8"
+          }
+        },
+        {
+          "client_id": "713812708563-lgp4qgt4833tetvjfaj9ir7jev0ku0uq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCsY6CwR92wwfq-PdWBXq_9MLWLcIP1i4Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "713812708563-lgp4qgt4833tetvjfaj9ir7jev0ku0uq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
