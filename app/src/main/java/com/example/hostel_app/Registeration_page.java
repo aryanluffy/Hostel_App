@@ -10,6 +10,8 @@ import android.widget.Toast;
 
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.HashMap;
+
 public class Registeration_page extends AppCompatActivity {
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     Button submit;
@@ -24,15 +26,20 @@ public class Registeration_page extends AppCompatActivity {
             public void onClick(View v) {
                 Hosteluser temp = new Hosteluser();
                 text=findViewById(R.id.email);
-                temp.setEmail(text.getText().toString());
+                temp.setEmail(text.getText().toString().trim());
                 text=findViewById(R.id.name);
-                temp.setName(text.getText().toString());
+                temp.setName(text.getText().toString().trim());
                 text=findViewById(R.id.mobile);
-                temp.setMobile(text.getText().toString());
+                temp.setMobile(text.getText().toString().trim());
                 temp.setResident(false);
                 temp.setRoom("");
+                text=findViewById(R.id.store_pass);
+                temp.setPassword(text.getText().toString());
                 db.collection("users").add(temp);
-//                Toast.makeText(getApplicationContext(),temp.getName(),Toast.LENGTH_SHORT).show();
+                HashMap <String,String> xxx=new HashMap<>();
+                xxx.put("Password",temp.getPassword());
+                db.collection("credentials").document(temp.getEmail()).set(xxx);
+                finish();
             }
         });
     }

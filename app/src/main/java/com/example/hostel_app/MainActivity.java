@@ -33,5 +33,13 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        button2=findViewById(R.id.login);
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getApplicationContext(),Login_page.class);
+                startActivity(intent);
+            }
+        });
     }
 }
