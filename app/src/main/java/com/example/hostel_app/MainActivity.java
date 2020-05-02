@@ -7,7 +7,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.firebase.firestore.FirebaseFirestore;
+
 public class MainActivity extends AppCompatActivity {
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
     Button submit;
     EditText text;
     @Override
@@ -28,7 +31,8 @@ public class MainActivity extends AppCompatActivity {
                 temp.setMobile(text.getText().toString());
                 temp.setResident(false);
                 temp.setRoom("");
-//                Toast.makeText(getApplicationContext(),temp.getName(),Toast.LENGTH_SHORT).show();
+                db.collection("users").add(temp);
+                Toast.makeText(getApplicationContext(),temp.getName(),Toast.LENGTH_SHORT).show();
             }
         });
     }
