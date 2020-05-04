@@ -1,7 +1,9 @@
 package com.example.hostel_app;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.StrictMode;
@@ -19,6 +21,7 @@ import java.net.UnknownHostException;
 
 public class MainActivity extends AppCompatActivity {
     Button button,button1,button2;
+    long backPressedTime=0;
     public boolean isInternetAvailable() {
         try {
             InetAddress address = InetAddress.getByName("www.google.com");
@@ -27,6 +30,18 @@ public class MainActivity extends AppCompatActivity {
             // Log error
         }
         return false;
+    }
+    @Override
+    public void onBackPressed(){
+        long t = System.currentTimeMillis();
+        if (t - backPressedTime > 2000) {    // 2 secs
+            backPressedTime = t;
+            Toast.makeText(this, "Press back again to logout",
+                    Toast.LENGTH_SHORT).show();
+        } else {    // this guy is serious
+            // clean up
+            super.onBackPressed();       // bye
+        }
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,5 +75,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
     }
 }
