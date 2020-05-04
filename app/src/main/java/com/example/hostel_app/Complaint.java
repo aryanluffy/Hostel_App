@@ -1,9 +1,7 @@
 package com.example.hostel_app;
 
 public class Complaint {
-    private String description,subject;
-    private int count;
-
+    private String description,subject,room;
     //getters
     public String getDescription() {
         return description;
@@ -11,8 +9,8 @@ public class Complaint {
     public String getSubject() {
         return subject;
     }
-    public int getCount() {
-        return count;
+    public String getRoom() {
+        return room;
     }
 
     //setters
@@ -22,7 +20,7 @@ public class Complaint {
     public void setSubject(String subject) {
         this.subject = subject;
     }
-    public void setCount(int count) {
-        this.count = count;
+    public void setRoom(String room) {
+        this.room = room;
     }
 }

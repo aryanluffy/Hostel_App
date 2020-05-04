@@ -2,6 +2,7 @@ package com.example.hostel_app;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -23,6 +24,7 @@ public class Complaints_Activity extends AppCompatActivity {
         }
         return false;
     }
+    Intent intent;
     Button button;
     EditText text;
     FirebaseFirestore db=FirebaseFirestore.getInstance();
@@ -30,6 +32,7 @@ public class Complaints_Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_complaints_);
+        intent=getIntent();
         button=findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,6 +49,7 @@ public class Complaints_Activity extends AppCompatActivity {
                     temp.setSubject(text.getText().toString().trim());
                     text=findViewById(R.id.textView6);
                     temp.setDescription(text.getText().toString().trim());
+                    temp.setRoom(intent.getStringExtra("room"));
                     db.collection("complaints").add(temp);
                     finish();
                 }

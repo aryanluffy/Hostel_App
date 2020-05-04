@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -35,11 +36,14 @@ public class Registeration_page extends AppCompatActivity {
                 temp.setRoom("");
                 text=findViewById(R.id.store_pass);
                 temp.setPassword(text.getText().toString());
-                db.collection("users").add(temp);
+                text=findViewById(R.id.textView3);
+                temp.setRoom(text.getText().toString());
+                db.collection("users").document(temp.getUserid()).set(temp);
                 HashMap <String,String> xxx=new HashMap<>();
                 xxx.put("Password",temp.getPassword());
                 db.collection("credentials").document(temp.getUserid()).set(xxx);
                 Intent intent=new Intent(getApplicationContext(),Home_Page.class);
+                intent.putExtra("User",temp.getUserid());
                 startActivity(intent);
                 finish();
             }

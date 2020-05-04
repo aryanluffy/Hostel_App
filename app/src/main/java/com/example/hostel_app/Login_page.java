@@ -61,6 +61,7 @@ public class Login_page extends AppCompatActivity {
                                     if(document.get("Password").toString().equals(text2.getText().toString())){
                                         // Place to add next activity
                                         Intent intent=new Intent(getApplicationContext(),Home_Page.class);
+                                        intent.putExtra("User",text1.getText().toString().trim());
                                         startActivity(intent);
                                         finish();
                                     }
