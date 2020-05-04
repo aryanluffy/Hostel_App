@@ -1,21 +1,22 @@
 package com.example.hostel_app;
 
-import androidx.annotation.NonNull;
-
 public class Hosteluser {
-    private String name,email,mobile,gender,room,password;
+    private String name, userid,mobile,gender,room,password,date;
     private int age;
     private boolean resident;
 
     //getters
+    public String getDate() {
+        return date;
+    }
     public int getAge() {
         return age;
     }
     public String getName() {
         return name;
     }
-    public String getEmail() {
-        return email;
+    public String getUserid() {
+        return userid;
     }
     public String getMobile() {
         return mobile;
@@ -43,8 +44,8 @@ public class Hosteluser {
     public void setName(String name) {
         this.name = name;
     }
-    public void setEmail(String email) {
-        this.email = email;
+    public void setUserid(String userid) {
+        this.userid = userid;
     }
     public void setMobile(String mobile) {
         this.mobile = mobile;
@@ -57,5 +58,8 @@ public class Hosteluser {
     }
     public void setPassword(String password) {
         this.password = password;
+    }
+    public void setDate(String date) {
+        this.date = date;
     }
 }

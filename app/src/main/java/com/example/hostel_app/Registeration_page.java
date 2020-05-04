@@ -1,12 +1,12 @@
 package com.example.hostel_app;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -26,7 +26,7 @@ public class Registeration_page extends AppCompatActivity {
             public void onClick(View v) {
                 Hosteluser temp = new Hosteluser();
                 text=findViewById(R.id.email);
-                temp.setEmail(text.getText().toString().trim());
+                temp.setUserid(text.getText().toString().trim());
                 text=findViewById(R.id.name);
                 temp.setName(text.getText().toString().trim());
                 text=findViewById(R.id.mobile);
@@ -38,7 +38,9 @@ public class Registeration_page extends AppCompatActivity {
                 db.collection("users").add(temp);
                 HashMap <String,String> xxx=new HashMap<>();
                 xxx.put("Password",temp.getPassword());
-                db.collection("credentials").document(temp.getEmail()).set(xxx);
+                db.collection("credentials").document(temp.getUserid()).set(xxx);
+                Intent intent=new Intent(getApplicationContext(),Home_Page.class);
+                startActivity(intent);
                 finish();
             }
         });
