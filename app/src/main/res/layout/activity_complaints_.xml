@@ -23,7 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="76dp"
-        android:text="Subject"
+        android:hint="Subject"
         android:textSize="20sp"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
@@ -32,7 +32,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:text="Description "
+        android:hint="Description "
         android:textSize="20sp"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 

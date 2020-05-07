@@ -15,6 +15,7 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 
 public class Complaints_Activity extends AppCompatActivity {
+    long time=0;
     public boolean isInternetAvailable() {
         try {
             InetAddress address = InetAddress.getByName("www.google.com");
@@ -41,17 +42,23 @@ public class Complaints_Activity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(),"Please check your internet connection.",Toast.LENGTH_SHORT);
                 }
                 else{
-                    Toast.makeText(getApplicationContext(),
-                            "Your response has been taken. Your query will be resolved within a week.",
-                            Toast.LENGTH_SHORT).show();
-                    Complaint temp=new Complaint();
-                    text=findViewById(R.id.textView5);
-                    temp.setSubject(text.getText().toString().trim());
-                    text=findViewById(R.id.textView6);
-                    temp.setDescription(text.getText().toString().trim());
-                    temp.setRoom(intent.getStringExtra("room"));
-                    db.collection("complaints").add(temp);
-                    finish();
+                        if(System.currentTimeMillis()-time>60000){
+                            Toast.makeText(getApplicationContext(),
+                                    "Your response has been taken. Your query will be resolved within a week.",
+                                    Toast.LENGTH_SHORT).show();
+                            Complaint temp=new Complaint();
+                            text=findViewById(R.id.textView5);
+                            temp.setSubject(text.getText().toString().trim());
+                            text=findViewById(R.id.textView6);
+                            temp.setDescription(text.getText().toString().trim());
+                            temp.setRoom(intent.getStringExtra("room"));
+                            db.collection("complaints").add(temp);
+                            time=System.currentTimeMillis();
+                        }
+                        else{
+                            Toast.makeText(getApplicationContext(),"You can complaint only once every minute.",Toast.LENGTH_SHORT).show();
+                        }
+
                 }
             }
         });

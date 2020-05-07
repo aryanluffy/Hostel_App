@@ -38,6 +38,8 @@ public class Registeration_page extends AppCompatActivity {
                 temp.setPassword(text.getText().toString());
                 text=findViewById(R.id.textView3);
                 temp.setRoom(text.getText().toString());
+                text=findViewById(R.id.gender);
+                temp.setGender(text.getText().toString());
                 db.collection("users").document(temp.getUserid()).set(temp);
                 HashMap <String,String> xxx=new HashMap<>();
                 xxx.put("Password",temp.getPassword());
